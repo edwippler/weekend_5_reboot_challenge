@@ -1,0 +1,40 @@
+
+#entryFields {
+display: table;
+table-layout: fixed;
+}
+
+#entryFields input{
+  padding: 5px 5px 0 5px;
+  display: table-cell;
+}
+
+label{
+  display: table-cell;
+}
+
+button{
+  background-color: #afafaf;
+  font-size: 15px;
+
+}
+
+button:hover{
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.deleteButton{
+  background-color: #bb0000;
+  font-size: 7px;
+}
+
+ul{
+  display: inline-block;
+  text-decoration: underline;
+}
+
+li {
+  list-style-type: none;
+  text-decoration: none;
+}

@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Event Madness</title>
-    <script src="vendor/jquery.js" charset="utf-8"></script>
-    <script src="client.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <h1>jQuery Events!</h1>
+<head>
+  <meta charset="utf-8">
+  <title>Weekend Challenge</title>
+  <script src="vendor/jquery.js" charset="utf-8"></script>
+  <script src="client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Employee Information Form</h1>
+  <form id="entryFields">
     <label for="firstName">First Name</label>
     <input type="text" id="firstName" placeholder="First Name">
-    <label for="middleName">Middle Name</label>
-    <input type="text" id="middleName" placeholder="Middle Name">
     <label for="lastName">Last Name</label>
     <input type="text" id="lastName" placeholder="Last Name">
-    <button type="button" name="button" id="clickMe">Click Me!</button>
-    <div id="nameContainer">
-      <!-- This is just an empty container. Just so that we can use it later. -->
-    </div>
-  </body>
+    <label for="idNumber">ID Number</label>
+    <input type="text" id="idNumber" placeholder="ID Number">
+    <label for="jobTitle">Job Title</label>
+    <input type="text" id="jobTitle" placeholder="Job Title">
+    <label for="annualSalary">Annual Salary</label>
+    <input type="text" id="annualSalary" placeholder="Annual Salary">
+    <button type="button" name="button" id="submit">Submit</button>
+  </form>
+
+  <div id="nameContainer">
+    <h3>Employee List</h3>
+    <ul id="listedFirstName">First Name:
+    </ul>
+    <ul id="listedLastName">Last Name:
+    </ul>
+    <ul id="listedID">ID Number:
+    </ul>
+    <ul id="listedJob">Job Title:
+    </ul>
+    <ul id="listedSalary">Annual Salary:
+    </ul>
+    <!-- This is just an empty container. Just so that we can use it later. -->
+  </div>
+  <h3 id="monthlyExpense"><data-expenses-type="monthly">Monthly Expenditures:</data></h3>
+
+</body>
 </html>

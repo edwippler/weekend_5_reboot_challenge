@@ -1,23 +1,39 @@
-// Waiting for html to load before running
 $(document).ready(function(){
-  // Creating an event listener, something to check if clickMe
-  // has had anything happen to it. 'click' says pay attention to clicks
-  $('#clickMe').on('click', function(){
-    var firstName = $('#firstName').val(); // gets value in firstName input box
-    var middleName = $('#middleName').val(); // gets value in middleName input box
-    var lastName = $('#lastName').val(); // gets value in lastName input box
-    var fullName = firstName + " " + middleName + " " + lastName; // builds full name
-    // Adds html to the bottom (but still inside of) #nameContainer
-    // we're using a class, because there can be many of these lines
-    $('#nameContainer').append('<p>Full Name: ' + fullName + " " +
-            '<button class="deleteButton">Delete</button></p>');
-  });
+  $('#submit').on('click', function(){
+    var firstName = $('#firstName').val();
+    var lastName = $('#lastName').val();
+    var idNumber = $('#idNumber').val();
+    var jobTitle = $('#jobTitle').val();
+    var annualSalary = $('#annualSalary').val();
 
-  // We can only use $('#someId') for things that exist at document ready
-  // To select things dynamically, we use event propogation
+    // adds items to the lists
+    $('#listedFirstName').append('<li>' + firstName + '</li>');
+    $('#listedLastName').append('<li>' + lastName + '</li>');
+    $('#listedID').append('<li>' + idNumber + '</li>');
+    $('#listedJob').append('<li>' + jobTitle + '</li>');
+    $('#listedSalary').append('<li>' + annualSalary + " " +
+    '<button class="deleteButton">Delete</button></li>');
+
+    // add submitted salary for a cumulative salary - got stuck on setting container for dynamic content.
+    // var salaryArray = $(this).closest('body').find('#listedSalary > li').val();
+
+    var cumulatveSalary = 0;
+    cumulatveSalary += annualSalary;
+    var expenseTotal = cumulatveSalary / 12;
+    expenseTotal = expenseTotal.toFixed(2);
+
+    $(this).closest('body').find('#monthlyExpense').replaceWith('<h3>Monthly Expenditures: ' + expenseTotal + '</h3>');
+
+});
+
+  $('#entryFields').on('click', ':button', function () {
+    $('input').val('');
+  })
+
+// remove line from all lists
   $('#nameContainer').on('click', '.deleteButton', function(){
-    // $(this) refers to the button that was just clicked (not all of them)
-    // console.log($(this));
     $(this).parent().remove();
+    // $(this).find('#listedFirstName').child().remove();
+
   });
 });
