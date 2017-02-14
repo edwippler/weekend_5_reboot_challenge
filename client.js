@@ -1,3 +1,4 @@
+var cumulatveSalary = 0;
 $(document).ready(function(){
   $('#submit').on('click', function(){
     var firstName = $('#firstName').val();
@@ -5,6 +6,7 @@ $(document).ready(function(){
     var idNumber = $('#idNumber').val();
     var jobTitle = $('#jobTitle').val();
     var annualSalary = $('#annualSalary').val();
+
 
     // adds items to the lists
     $('#listedFirstName').append('<li>' + firstName + '</li>');
@@ -16,13 +18,13 @@ $(document).ready(function(){
 
     // add submitted salary for a cumulative salary - got stuck on setting container for dynamic content.
     // var salaryArray = $(this).closest('body').find('#listedSalary > li').val();
+    // var salaryArray = [];
 
-    var cumulatveSalary = 0;
+    annualSalary = Number(annualSalary);
     cumulatveSalary += annualSalary;
     var expenseTotal = cumulatveSalary / 12;
     expenseTotal = expenseTotal.toFixed(2);
-
-    $(this).closest('body').find('#monthlyExpense').replaceWith('<h3>Monthly Expenditures: ' + expenseTotal + '</h3>');
+    $('#monthlyExpense').text(expenseTotal);
 
 });
 
@@ -32,7 +34,14 @@ $(document).ready(function(){
 
 // remove line from all lists
   $('#nameContainer').on('click', '.deleteButton', function(){
+    var currentExpense = $('#nameContainer').val();
+    var updatedExpense = parseFloat(currentExpense) - removedSalary;
+    updatedExpense = updatedExpense.toFixed(2);
+    console.log(updatedExpense);
+    $('#monthlyExpense').text(updatedExpense);
+
     $(this).parent().remove();
+
     // $(this).find('#listedFirstName').child().remove();
 
   });

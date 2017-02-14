@@ -1,5 +1,5 @@
 
-#entryFields {
+form {
 display: table;
 table-layout: fixed;
 }
@@ -31,7 +31,7 @@ button:hover{
 
 ul{
   display: inline-block;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
 }
 
 li {
