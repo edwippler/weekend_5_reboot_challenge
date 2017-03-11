@@ -7,25 +7,25 @@
   <script src="vendors/angular-route.min.js" charset="utf-8"></script>
   <script src="scripts/client.js" charset="utf-8"></script>
 </head>
-<body ng-app="App" ng-controller="EmployeeListController as elc">
+<body ng-app="App">
   <h1>Great Scott, it's an Angular Reboot!</h1>
-  {{elc.message}}
   <!-- Employee Form  -->
-  <form>
+  <form ng-controller="FormController as fc">
     <label for="firstName">First Name<label>
-      <input type="text" name="firstName" placeholder="First Name" id="firstName" class="employeeFormInput">
+      <input type="text" name="firstName" placeholder="First Name" ng-model="fc.newEmployee.first_name">
       <label for="lastName">Last Name<label>
-        <input type="text" name="lastName" placeholder="Last Name" id="lastName" class="employeeFormInput">
+        <input type="text" name="lastName" placeholder="Last Name" ng-model="fc.newEmployee.last_name">
         <label for="idNumber">ID Number<label>
-          <input type="number" name="idNumber" placeholder="ID Number" id="idNumber" class="employeeFormInput">
+          <input type="text" name="idNumber" placeholder="ID Number" ng-model="fc.newEmployee.eidn">
           <label for="jobTitle">Job Title<label>
-            <input type="text" name="jobTitle" placeholder="Job Title" id="jobTitle" class="employeeFormInput">
+            <input type="text" name="jobTitle" placeholder="Job Title" ng-model="fc.newEmployee.job_title">
             <label for="annualSalary">Annual Salary<label>
-              <input type="number" name="annualSalary" placeholder="Annual Salary" id="annualSalary" class="employeeFormInput">
-              <button type="submit">Submit</button>
+              <input type="number" name="annualSalary" placeholder="Annual Salary" ng-model="fc.newEmployee.annual_salary">
+              <button type="submit" ng-click="fc.addEmployee()">Submit</button>
             </form>
 
             <!-- Table of employees -->
+            <div ng-controller="EmployeeListController as elc">
             <h3>Employee List</h3>
             <table>
               <thead>
@@ -45,9 +45,11 @@
                   <td>{{person.eidn}}</td>
                   <td>{{person.job_title}}</td>
                   <td>${{person.annual_salary}}</td>
+                  <td><button ng-click="elc.statusChange()">Active</button></td>
                 </tr>
               </tbody>
             </table>
+          </div>
             <!-- Monthly Expenditures section --><!-- ng-include this section -->
             <h3>Monthly Salary Expenditures: $<span id="monthlyExpenses">0</span></h3>
 

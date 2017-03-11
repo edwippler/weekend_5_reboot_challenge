@@ -1,4 +1,3 @@
-console.log('scripts good');
 var app = angular.module('App', []);
 
 app.controller('EmployeeListController', function () {
@@ -13,5 +12,18 @@ app.controller('EmployeeListController', function () {
     {first_name:'Doc', last_name: 'Brown', eidn: 'DL88', job_title: 'Applied Science Specialist', annual_salary: 88888}
   ];
 
+  self.statusChange = function(){
+    console.log('button click works');
+  }
 
+});
+
+app.controller('FormController', function(){
+  console.log('FormController loaded');
+  var self = this;
+  self.newEmployee = {};
+
+  self.addEmployee = function(){
+    console.log(self.newEmployee);
+  }
 });
