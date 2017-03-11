@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>Salary Calculator NG reboot</title>
-  <!-- <script src="vendors/angular.min.js"></script> -->
-  <!-- <script src="vendors/angular-route.min.js" charset="utf-8"></script> -->
-  <!-- <script src="scripts/client.js" charset="utf-8"></script> -->
+  <script src="vendors/angular.min.js"></script>
+  <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
 </head>
 <body ng-app="App" ng-controller="EmployeeListController as elc">
   <h1>Great Scott, it's an Angular Reboot!</h1>
@@ -35,12 +35,16 @@
                   <th>ID</th>
                   <th>Title</th>
                   <th>Annual Salary</th>
-                  <th>Delete</th>
+                  <th>Status</th>
                 </tr>
               </thead>
-              <tbody id="employeeTableBody">
-                <tr>
-                  <td>yeeah!</td>
+              <tbody>
+                <tr ng-repeat="person in elc.testList">
+                  <td>{{person.first_name}}</td>
+                  <td>{{person.last_name}}</td>
+                  <td>{{person.eidn}}</td>
+                  <td>{{person.job_title}}</td>
+                  <td>${{person.annual_salary}}</td>
                 </tr>
               </tbody>
             </table>
