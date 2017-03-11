@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Salary Calculator NG reboot</title>
+  <!-- <script src="vendors/angular.min.js"></script> -->
+  <!-- <script src="vendors/angular-route.min.js" charset="utf-8"></script> -->
+  <!-- <script src="scripts/client.js" charset="utf-8"></script> -->
+</head>
+<body ng-app="App" ng-controller="EmployeeListController as elc">
+  <h1>Great Scott, it's an Angular Reboot!</h1>
+  {{elc.message}}
+  <!-- Employee Form  -->
+  <form>
+    <label for="firstName">First Name<label>
+      <input type="text" name="firstName" placeholder="First Name" id="firstName" class="employeeFormInput">
+      <label for="lastName">Last Name<label>
+        <input type="text" name="lastName" placeholder="Last Name" id="lastName" class="employeeFormInput">
+        <label for="idNumber">ID Number<label>
+          <input type="number" name="idNumber" placeholder="ID Number" id="idNumber" class="employeeFormInput">
+          <label for="jobTitle">Job Title<label>
+            <input type="text" name="jobTitle" placeholder="Job Title" id="jobTitle" class="employeeFormInput">
+            <label for="annualSalary">Annual Salary<label>
+              <input type="number" name="annualSalary" placeholder="Annual Salary" id="annualSalary" class="employeeFormInput">
+              <button type="submit">Submit</button>
+            </form>
+
+            <!-- Table of employees -->
+            <h3>Employee List</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Annual Salary</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody id="employeeTableBody">
+                <tr>
+                  <td>yeeah!</td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Monthly Expenditures section --><!-- ng-include this section -->
+            <h3>Monthly Salary Expenditures: $<span id="monthlyExpenses">0</span></h3>
+
+          </body>
+          </html>

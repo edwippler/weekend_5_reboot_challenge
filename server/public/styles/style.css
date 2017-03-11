@@ -1,4 +1,4 @@
-
+/*
 form {
 display: table;
 table-layout: fixed;
@@ -31,10 +31,9 @@ button:hover{
 
 ul{
   display: inline-block;
-  /*text-decoration: underline;*/
 }
 
 li {
   list-style-type: none;
   text-decoration: none;
-}
+}*/

@@ -1,0 +1,30 @@
+{
+  "name": "reboot-weekend-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "test": "",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwippler/phi-weekend-one-starter.git"
+  },
+  "keywords": [
+    "angular",
+    "reboot"
+  ],
+  "author": "Edmund WIppler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edwippler/phi-weekend-one-starter/issues"
+  },
+  "homepage": "https://github.com/edwippler/phi-weekend-one-starter#readme",
+  "dependencies": {
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}
