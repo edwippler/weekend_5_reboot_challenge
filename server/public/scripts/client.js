@@ -45,12 +45,19 @@ app.controller('EmployeeListController', ['$http', function($http) {
 
 }]); // end EmployeeListController
 
-app.controller('FormController', function(){
+app.controller('FormController', ['$http', function($http){
   console.log('FormController loaded');
   var self = this;
   self.newEmployee = {};
 
   self.addEmployee = function(){
     console.log(self.newEmployee);
+    $http({
+      type: 'POST',
+      url: 'employees',
+      data: self.newEmployee
+    }).then(function(response){
+      console.log(response);
+    });
   }
-}); // end FormController
+}]); // end FormController

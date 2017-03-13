@@ -78,4 +78,28 @@ router.delete('/:id', function(req, res){
   });
 });
 
+router.post('/', function(req, res){
+  var newEmployee = req.body;
+  console.log('hit post route in employees.js', newEmployee);
+  pool.connect(function(err, client, done){
+    if (err) {
+      console.log('error connecting to db', err);
+      res.sendStatus(500);
+    }else {
+      //INSERT INTO employees (first_name, last_name, eidn, job_title, annual_salary) VALUES ('Fred', 'Flinstone', '200BC', 'Rock Star', 4000);
+      client.query('INSERT INTO employees (first_name, last_name, eidn, job_title, annual_salary) VALUES ($1, $2, $3, $4, $5);',
+      [newEmployee.firstName, newEmployee.lastName, newEmployee.eidn, newEmployee.jobTitle, newEmployee.annualSalary], function(err, result){
+        done();
+        if (err){
+          console.log('error making query', err);
+          res.sendStatus(502)
+        }else {
+          console.log(result);
+          res.sendStatus(201);
+        }
+      });
+    }
+  });
+});
+
 module.exports = router;

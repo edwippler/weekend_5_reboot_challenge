@@ -12,15 +12,15 @@
   <!-- Employee Form  -->
   <form ng-controller="FormController as fc">
     <label for="firstName">First Name<label>
-      <input type="text" name="firstName" placeholder="First Name" ng-model="fc.newEmployee.first_name">
+      <input type="text" name="firstName" placeholder="First Name" ng-model="fc.newEmployee.firstName">
       <label for="lastName">Last Name<label>
-        <input type="text" name="lastName" placeholder="Last Name" ng-model="fc.newEmployee.last_name">
+        <input type="text" name="lastName" placeholder="Last Name" ng-model="fc.newEmployee.lastName">
         <label for="idNumber">ID Number<label>
           <input type="text" name="idNumber" placeholder="ID Number" ng-model="fc.newEmployee.eidn">
           <label for="jobTitle">Job Title<label>
-            <input type="text" name="jobTitle" placeholder="Job Title" ng-model="fc.newEmployee.job_title">
+            <input type="text" name="jobTitle" placeholder="Job Title" ng-model="fc.newEmployee.jobTitle">
             <label for="annualSalary">Annual Salary<label>
-              <input type="number" name="annualSalary" placeholder="Annual Salary" ng-model="fc.newEmployee.annual_salary">
+              <input type="number" name="annualSalary" placeholder="Annual Salary" ng-model="fc.newEmployee.annualSalary">
               <button type="submit" ng-click="fc.addEmployee()">Submit</button>
             </form>
 
