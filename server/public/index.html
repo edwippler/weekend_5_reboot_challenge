@@ -44,14 +44,14 @@
                   <td>{{person.last_name}}</td>
                   <td>{{person.eidn}}</td>
                   <td>{{person.job_title}}</td>
-                  <td>${{person.annual_salary}}</td>
-                  <td><button ng-click="elc.statusChange()">Active</button></td>
+                  <td>${{person.annual_salary | number:2}}</td>
+                  <td><button ng-click="elc.statusChange()">Remove</button></td>
                 </tr>
               </tbody>
             </table>
-          </div>
-            <!-- Monthly Expenditures section --><!-- ng-include this section -->
-            <h3>Monthly Salary Expenditures: $<span id="monthlyExpenses">0</span></h3>
 
+            <!-- Monthly Expenditures section --><!-- ng-include this section -->
+            <h3 ng-repeat="total in elc.expenses">Monthly Salary Expenditures: ${{total.sum/12 | number:2}}</h3>
+</div>
           </body>
           </html>

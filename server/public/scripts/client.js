@@ -5,14 +5,15 @@ app.controller('EmployeeListController', ['$http', function($http) {
   var self = this;
 
   self.message = 'Digital wizardry';
-
   self.employeeList = {};
+  self.expenses = {};
+
+  getEmployees();
+  monthlyExpense();
 
   self.statusChange = function(){
     console.log('button click works');
   }
-
-  getEmployees();
 
   function getEmployees() {
     $http({
@@ -22,6 +23,16 @@ app.controller('EmployeeListController', ['$http', function($http) {
       console.log('response from ajax', response.data);
       self.employeeList = response.data;
     });
+  }
+
+  function monthlyExpense() {
+    $http({
+      type: 'GET',
+      url: '/employees/monthly'
+    }).then(function(response){
+      console.log(response.data);
+      self.expenses = response.data; 
+    })
   }
 
 }]);
