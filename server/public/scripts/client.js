@@ -14,7 +14,7 @@ app.controller('EmployeeListController', ['$http', function($http) {
   self.statusChange = function(id){
     console.log(id, 'was clicked for removal');
     $http({
-      type: 'DELETE',
+      method: 'DELETE',
       url: '/employees/' + id
     }).then(function(response){
       console.log(response);
@@ -24,7 +24,7 @@ app.controller('EmployeeListController', ['$http', function($http) {
 
   function getEmployees() {
     $http({
-      type: 'GET',
+      method: 'GET',
       url: '/employees'
     }).then(function(response){
       self.employeeList = response.data;
@@ -35,7 +35,7 @@ app.controller('EmployeeListController', ['$http', function($http) {
 
   function monthlyExpense() {
     $http({
-      type: 'GET',
+      method: 'GET',
       url: '/employees/monthly'
     }).then(function(response){
       // console.log(response.data);
@@ -43,21 +43,23 @@ app.controller('EmployeeListController', ['$http', function($http) {
     });
   } //end retreiving sum of salary
 
-}]); // end EmployeeListController
+// }]); // end EmployeeListController
 
-app.controller('FormController', ['$http', function($http){
-  console.log('FormController loaded');
-  var self = this;
+// app.controller('FormController', ['$http', function($http){
+//   console.log('FormController loaded');
+//   var self = this;
   self.newEmployee = {};
 
   self.addEmployee = function(){
     console.log(self.newEmployee);
     $http({
-      type: 'POST',
-      url: 'employees',
+      method: 'POST',
+      url: '/employees',
       data: self.newEmployee
     }).then(function(response){
       console.log(response);
+      self.newEmployee = {};
+      getEmployees(); 
     });
   }
 }]); // end FormController
