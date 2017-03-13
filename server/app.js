@@ -11,12 +11,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-// home base
-// app.get( '/', function( req, res ){
-//   // console.log( 'home base url hit' );
-//   res.sendFile( path.resolve( 'server/public/views/index.html' ) );
-// }); // end base url
-
 app.use('/employees', employeesRouter);
 
 app.listen(port, function() {

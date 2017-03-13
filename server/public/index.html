@@ -26,32 +26,32 @@
 
             <!-- Table of employees -->
             <div ng-controller="EmployeeListController as elc">
-            <h3>Employee List</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>ID</th>
-                  <th>Title</th>
-                  <th>Annual Salary</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="person in elc.employeeList">
-                  <td>{{person.first_name}}</td>
-                  <td>{{person.last_name}}</td>
-                  <td>{{person.eidn}}</td>
-                  <td>{{person.job_title}}</td>
-                  <td>${{person.annual_salary | number:2}}</td>
-                  <td><button ng-click="elc.statusChange()">Remove</button></td>
-                </tr>
-              </tbody>
-            </table>
+              <h3>Employee List</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Annual Salary</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="person in elc.employeeList">
+                    <td>{{person.first_name}}</td>
+                    <td>{{person.last_name}}</td>
+                    <td>{{person.eidn}}</td>
+                    <td>{{person.job_title}}</td>
+                    <td>${{person.annual_salary | number:2}}</td>
+                    <td><button ng-click="elc.statusChange(person.id)">Remove</button></td>
+                  </tr>
+                </tbody>
+              </table>
 
-            <!-- Monthly Expenditures section --><!-- ng-include this section -->
-            <h3 ng-repeat="total in elc.expenses">Monthly Salary Expenditures: ${{total.sum/12 | number:2}}</h3>
-</div>
+              <!-- Monthly Expenditures section --><!-- ng-include this section -->
+              <h3 ng-repeat="total in elc.expenses">Monthly Salary Expenditures: ${{total.sum/12 | number:2}}</h3>
+            </div>
           </body>
           </html>

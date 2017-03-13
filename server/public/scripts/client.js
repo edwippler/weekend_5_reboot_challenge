@@ -9,33 +9,41 @@ app.controller('EmployeeListController', ['$http', function($http) {
   self.expenses = {};
 
   getEmployees();
-  monthlyExpense();
+  // monthlyExpense();
 
-  self.statusChange = function(){
-    console.log('button click works');
-  }
+  self.statusChange = function(id){
+    console.log(id, 'was clicked for removal');
+    $http({
+      type: 'DELETE',
+      url: '/employees/' + id
+    }).then(function(response){
+      console.log(response);
+      getEmployees();
+    });
+  } //end DELETE function
 
   function getEmployees() {
     $http({
       type: 'GET',
       url: '/employees'
     }).then(function(response){
-      console.log('response from ajax', response.data);
       self.employeeList = response.data;
+        monthlyExpense();
     });
-  }
+  } //end employee list request function
+
 
   function monthlyExpense() {
     $http({
       type: 'GET',
       url: '/employees/monthly'
     }).then(function(response){
-      console.log(response.data);
-      self.expenses = response.data; 
-    })
-  }
+      // console.log(response.data);
+      self.expenses = response.data;
+    });
+  } //end retreiving sum of salary
 
-}]);
+}]); // end EmployeeListController
 
 app.controller('FormController', function(){
   console.log('FormController loaded');
@@ -45,4 +53,4 @@ app.controller('FormController', function(){
   self.addEmployee = function(){
     console.log(self.newEmployee);
   }
-});
+}); // end FormController
