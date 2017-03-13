@@ -58,8 +58,9 @@ app.controller('EmployeeListController', ['$http', function($http) {
       data: self.newEmployee
     }).then(function(response){
       console.log(response);
-      self.newEmployee = {};
       getEmployees(); 
+      self.newEmployee = {};
     });
+
   }
 }]); // end FormController
